@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      let name = "Lukasz";
+      let lastName = "Szczepaniak";
+      let job = "prawnik";
+      console.log(name, lastName, job);
+
+      let a = 10;
+      let b = 20;
+      let area = a * b;
+      console.log(area);
+
+      let temperatureC = "";
+
+      function toFarenheit(temperatureC) {
+        let temperatureF = (9 / 5) * temperatureC + 32;
+        return temperatureF;
+      }
+      console.log(toFarenheit(25));
+
+      let ciagZnakow = [...""];
+
+      function shortQuote(ciagZnakow) {
+        let cut = `""${ciagZnakow.slice(0, ciagZnakow.length / 2)}...""`;
+        // let cut = '""' + ciagZnakow.slice(0, (ciagZnakow.length / 2)) + '...' + '""';
+        return cut;
+      }
+      console.log(shortQuote("qwerty"));
+
+      function countHits(phrase, str) {
+        let phraseSplit = phrase.split(" ");
+        let result = new RegExp(str).exec(phraseSplit);
+        let st = result.toString();
+        // console.log(st);
+        // document.querySelector('body').innerHTML = result;
+
+        count = 0;
+        for (let i = 0; i < phraseSplit.length; i++) {
+          if (phraseSplit[i] == st) {
+            st = phraseSplit[i];
+            count++;
+          }
+        }
+        console.log(`'${st}' ${count} times`);
+      }
+
+      countHits("the the no style the one", "the");
+
+      function isAdult(age) {
+        if (age < 18) {
+          console.log(false);
+        } else if (age >= 18) {
+          console.log(true);
+        } else {
+          console.log(`${false} 'Oops !'`);
+        }
+      }
+
+      isAdult("baz");
+
+      function skip(index, n) {
+        let arr = n.slice(index);
+        console.log(arr);
+      }
+
+      skip(2, [24, 67, 78, 45, 89]);
+      skip(0, ["foo", "bar"]);
+
+      function addAll(numbers) {
+        const arr = numbers;
+        let sum = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          sum = sum + arr[i];
+        }
+        console.log(sum);
+      }
+
+      addAll([1, 2, 46]);
+
+      function toPairs(pair) {
+        let arr = [];
+        for (var key in pair) {
+          arr.push(key);
+          arr.push(pair[key]);
+        }
+        // console.log(arr);
+
+        let first = 0;
+        let second = 2;
+        let result = [];
+
+        for (let i = 0; i < arr.length / 2; i++) {
+          let newArr = arr.slice(first, second);
+          result.push(newArr);
+          first += 2;
+          second += 2;
+        }
+        console.log(result);
+      }
+
+      toPairs({
+        name: "John",
+        age: 20,
+        secondName: "Mike"
+      });
+
+      function num() {
+        number = 5;
+        return this.number;
+        // return this.number = 5;
+      }
+
+      var total = 20 + num();
+      console.log(total);
+
+      var number = {
+        numb: function num() {
+          return (this.number = 5);
+        }
+      };
+      var total = 20 + number.numb();
+      console.log(total);
+    </script>
+  </body>
+</html>
